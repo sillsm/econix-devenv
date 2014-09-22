@@ -7,5 +7,4 @@ RUN apt-get install npm -yqq
 RUN apt-get install libxml2-dev -y
 RUN apt-get install nodejs-legacy -y
 RUN git clone https://github.com/ajaxorg/cloud9
-RUN cd cloud9
-RUN npm install
+RUN cd cloud9 && npm install
