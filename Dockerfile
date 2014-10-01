@@ -14,3 +14,7 @@ RUN echo "server { location / { root /data/www;}}" > etc/nginx/nginx.conf
 RUN mkdir /data
 RUN mkdir /data/www
 RUN echo "Hi world" > /data/www/index.htm
+
+RUN apt-get install tmux -y
+
+CMD ["tmux"]
