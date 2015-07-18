@@ -8,9 +8,14 @@ RUN apt-get install vim -y
 RUN apt-get install git -y
 RUN apt-get install sed -y
 RUN apt-get install protobuf-compiler -y
+RUN apt-get update && apt-get install -y golang
+
+# Syntax highlighting for vim.
+RUN apt-get install vim-gocomplete gocode vim-syntax-go -y
+RUN vim-addon-manager install go-syntax
+RUN vim-addon-manager install gocode
 
 # Go Stuff
-RUN apt-get update && apt-get install -y golang
 env GOPATH /home/user/gocode
 env PATH $PATH:$GOPATH/bin
 RUN go get -u -v github.com/golang/protobuf/proto
